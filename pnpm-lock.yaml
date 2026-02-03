@@ -17,6 +17,9 @@ importers:
       ag-grid-community:
         specifier: ^21.2.2
         version: 21.2.2
+      ag-grid-react:
+        specifier: ^21.2.2
+        version: 21.2.2(ag-grid-community@21.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       antd:
         specifier: ^3.26.20
         version: 3.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -710,6 +713,13 @@ packages:
 
   ag-grid-community@21.2.2:
     resolution: {integrity: sha512-x8kQmynYM/7zoigs7wIe7DkK1TIlUP5N1TYrGPsK8vO2gN+rqOok9csGPy4YamggWTcSxpy7wji/Kcz/gUp8/w==}
+
+  ag-grid-react@21.2.2:
+    resolution: {integrity: sha512-QlTtLMsBgLMPzqP95KoOUxXfCwVoYpLOF0uiZeVouHXUR/WxZXlsgtcyOPueKwDGWKBQ+qxB0+3JV5q+mSrPXw==}
+    peerDependencies:
+      ag-grid-community: ^21.2.0
+      react: ^15.5.0 || ^16.0.0
+      react-dom: ^15.5.0 || ^16.0.0
 
   antd@3.26.20:
     resolution: {integrity: sha512-VIous4ofZfxFtd9K1h9MpRX2sDDpj3QcOFi3YgIc9B/uyDli/GlLb8SWKfQfJaMkaxwatIv503dag2Tog+hiEg==}
@@ -2380,6 +2390,13 @@ snapshots:
       object-assign: 4.1.1
 
   ag-grid-community@21.2.2: {}
+
+  ag-grid-react@21.2.2(ag-grid-community@21.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      ag-grid-community: 21.2.2
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   antd@3.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

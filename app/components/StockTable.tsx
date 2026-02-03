@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
-import { AgGridReact } from 'ag-grid-community';
-import { ColDef, GridReadyEvent } from 'ag-grid-community';
-import { Button, Space } from 'antd';
-import { CONFIG, ChannelType } from '../constants';
+import { AgGridReact } from 'ag-grid-react';
+import type { ColDef, GridReadyEvent } from 'ag-grid-community';
+import { Button } from 'antd';
+import { CONFIG } from '../constants';
+import type { ChannelType } from '../constants';
 
 const TableContainer = styled.div`
   padding: 24px;
@@ -16,7 +17,10 @@ const ControlsContainer = styled.div`
   align-items: center;
 `;
 
-const ChannelButtons = styled(Space)`
+const ChannelButtons = styled.div`
+  display: flex;
+  gap: 8px;
+  
   .ant-btn {
     border-radius: 6px;
     font-weight: 500;
@@ -147,7 +151,7 @@ export const StockTable: React.FC = () => {
   return (
     <TableContainer>
       <ControlsContainer>
-        <ChannelButtons size="middle">
+        <ChannelButtons>
           <Button 
             type={selectedChannel === 'ALL' ? 'primary' : 'default'}
             onClick={() => setSelectedChannel('ALL')}
