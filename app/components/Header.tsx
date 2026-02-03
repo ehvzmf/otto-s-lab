@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Button, Drawer, Menu } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { Button, Drawer, Menu, Icon } from 'antd';
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -51,7 +50,7 @@ export const Header: React.FC = () => {
       <HeaderContainer>
         <Title>Otto's Lab</Title>
         <MenuButton 
-          icon={<MenuOutlined />}
+          icon="menu"
           onClick={() => setDrawerVisible(true)}
         />
       </HeaderContainer>
