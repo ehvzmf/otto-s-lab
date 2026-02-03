@@ -35,6 +35,8 @@ const GridContainer = styled.div`
     --ag-header-background-color: #fafafa;
     --ag-header-foreground-color: #333;
     --ag-border-color: #e8e8e8;
+    height: 100%;
+    width: 100%;
   }
 `;
 
@@ -170,20 +172,21 @@ export const StockTable: React.FC = () => {
       </ControlsContainer>
 
       <GridContainer>
-        <AgGridReact
-          className="ag-theme-alpine"
-          columnDefs={columnDefs}
-          rowData={filteredData}
-          onGridReady={onGridReady}
-          defaultColDef={{
-            resizable: true,
-            sortable: true,
-            filter: true,
-          }}
-          animateRows={true}
-          rowHeight={40}
-          headerHeight={44}
-        />
+        <div className="ag-theme-alpine">
+          <AgGridReact
+            columnDefs={columnDefs}
+            rowData={filteredData}
+            onGridReady={onGridReady}
+            defaultColDef={{
+              resizable: true,
+              sortable: true,
+              filter: true,
+            }}
+            animateRows={true}
+            rowHeight={40}
+            headerHeight={44}
+          />
+        </div>
       </GridContainer>
     </TableContainer>
   );
