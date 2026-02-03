@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
-import { Header } from "../components/Header";
-import { StockTable } from "../components/StockTable";
+import { Header } from "~/components/Header";
+import { StockTable } from "~/components/StockTable";
 
 export function meta({}: Route.MetaArgs) {
   return [

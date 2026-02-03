@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { AgGridReact } from 'ag-grid-react';
 import type { ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Button } from 'antd';
-import { CONFIG } from '../constants';
-import type { ChannelType } from '../constants';
+import { CONFIG } from '~/constants';
+import type { ChannelType } from '~/constants';
 
 const TableContainer = styled.div`
   padding: 24px;
