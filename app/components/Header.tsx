@@ -37,14 +37,6 @@ const MenuButton = styled(Button)`
 export const Header: React.FC = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
 
-  const menuItems = [
-    { key: '1', label: '홈' },
-    { key: '2', label: '포트폴리오' },
-    { key: '3', label: '매매일지' },
-    { key: '4', label: '분석' },
-    { key: '5', label: '설정' },
-  ];
-
   return (
     <>
       <HeaderContainer>
@@ -63,10 +55,15 @@ export const Header: React.FC = () => {
         width={280}
       >
         <Menu
-          items={menuItems}
           mode="vertical"
           style={{ border: 'none' }}
-        />
+        >
+          <Menu.Item key="1">홈</Menu.Item>
+          <Menu.Item key="2">포트폴리오</Menu.Item>
+          <Menu.Item key="3">매매일지</Menu.Item>
+          <Menu.Item key="4">분석</Menu.Item>
+          <Menu.Item key="5">설정</Menu.Item>
+        </Menu>
       </Drawer>
     </>
   );
