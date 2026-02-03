@@ -121,20 +121,14 @@ export const StockTable: React.FC = () => {
       width: 80,
       cellRenderer: (params: any) => {
         const channel = CONFIG.CHANNELS[params.value as ChannelType];
-        return (
-          <span 
-            style={{ 
-              backgroundColor: channel.bgColor, 
-              color: channel.pointColor,
-              padding: '2px 8px',
-              borderRadius: '4px',
-              fontSize: '12px',
-              fontWeight: '500'
-            }}
-          >
-            {channel.name}
-          </span>
-        );
+        return `<span style="
+          background-color: ${channel.bgColor}; 
+          color: ${channel.pointColor};
+          padding: 2px 8px;
+          border-radius: 4px;
+          font-size: 12px;
+          font-weight: 500;
+        ">${channel.name}</span>`;
       }
     }
   ], []);
