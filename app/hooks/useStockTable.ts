@@ -1,7 +1,9 @@
-import { useState, useMemo } from 'react';
-import type { ColDef, GridReadyEvent } from 'ag-grid-community';
+import { useState, useMemo, useRef } from 'react';
+import React from 'react';
+import type { ColDef, GridReadyEvent, GridApi } from 'ag-grid-community';
 import { CONFIG } from '~/constants';
 import type { ChannelType } from '~/constants';
+import { StockDetailRenderer } from '~/components/StockDetailRenderer';
 
 export interface StockData {
   id: string;
@@ -24,11 +26,12 @@ const SAMPLE_DATA: StockData[] = [
 
 export const useStockTable = () => {
   const [selectedChannel, setSelectedChannel] = useState<ChannelType | 'ALL'>('ALL');
+  const gridApiRef = useRef<GridApi | null>(null);
 
   const columnDefs: ColDef[] = useMemo(() => [
-    { 
-      field: 'symbol', 
-      headerName: '심볼', 
+    {
+      field: 'symbol',
+      headerName: '심볼',
       width: 100,
       pinned: 'left'
     },
@@ -104,7 +107,13 @@ export const useStockTable = () => {
   }, [selectedChannel]);
 
   const onGridReady = (params: GridReadyEvent) => {
+    gridApiRef.current = params.api;
     params.api.sizeColumnsToFit();
+  };
+
+  const detailCellRenderer = (params: any) => {
+    const data = params.data as StockData;
+    return React.createElement(StockDetailRenderer, { data });
   };
 
   return {
@@ -113,5 +122,8 @@ export const useStockTable = () => {
     columnDefs,
     filteredData,
     onGridReady,
+    gridApiRef,
+    masterDetail: true,
+    detailCellRenderer,
   };
 };

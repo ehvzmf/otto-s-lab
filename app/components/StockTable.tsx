@@ -31,7 +31,7 @@ const GridContainer = styled.div`
   height: 600px;
   width: 100%;
   
-  .ag-theme-alpine {
+  .ag-theme-material {
     --ag-header-background-color: #fafafa;
     --ag-header-foreground-color: #333;
     --ag-border-color: #e8e8e8;
@@ -47,6 +47,8 @@ export const StockTable: React.FC = () => {
     columnDefs,
     filteredData,
     onGridReady,
+    masterDetail,
+    detailCellRenderer,
   } = useStockTable();
 
   return (
@@ -77,11 +79,13 @@ export const StockTable: React.FC = () => {
       </ControlsContainer>
 
       <GridContainer>
-        <div className="ag-theme-alpine">
+        <div className="ag-theme-material">
           <AgGridReact
             columnDefs={columnDefs}
             rowData={filteredData}
             onGridReady={onGridReady}
+            masterDetail={masterDetail}
+            detailCellRenderer={detailCellRenderer as any}
             defaultColDef={{
               resizable: true,
               sortable: true,
